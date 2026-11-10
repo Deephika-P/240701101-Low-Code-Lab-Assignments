@@ -1,0 +1,1810 @@
+/*
+ * Author       : deephika.p.2024.cse_rajal901
+ * Generated on : 16-Oct-2026 17:39:19
+ * Version      : 1.0
+ */
+ application "Event Registration"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Colleges
+		{
+			success message = "College Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			College_Name
+			(
+    			type = text
+				displayname = "College Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			College_Code
+			(
+    			type = text
+				displayname = "College Code"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Event_Registration_Form
+		{
+			displayname = "Event Registration Form"
+			success message = "Event Registration Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Participant_Details
+			(
+				type = section
+				displayname = "Participant Details"
+				visibility = true
+	 			row = 2
+	 			column = 0   
+				width = medium
+			)
+			must have Participant_Name
+			(
+    			type = name
+				displayname = "Participant Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Participant_Type
+			(
+				type = radiobuttons
+				displayname = "Participant Type"
+				maxchar = 100
+				values = {"Student","Faculty","Professional"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Team_Size
+			(
+				type = number
+				displayname = "Team Size"
+				maxchar = 1
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Contact_Institution_Details
+			(
+				type = section
+				displayname = "Contact & Institution Details"
+				visibility = true
+	 			row = 3
+	 			column = 0   
+				width = medium
+			)
+			must have Email1
+			(
+    			type = email
+				displayname = "Email Address"
+				maxchar = 80
+	 			row = 3
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Contact Number"
+    			allowedcountries={in}
+	 			row = 3
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			College_Organization_Name
+			(
+    			type = text
+				displayname = "College  Organization Name"
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Institution_Address
+			(
+    			type = address
+				displayname = "Institution Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+	     			 visibility = false
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 3
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Event_Preferences
+			(
+				type = section
+				displayname = "Event Preferences"
+				visibility = true
+	 			row = 4
+	 			column = 0   
+				width = medium
+			)
+			must have Event_Track
+			(
+				type = picklist
+				displayname = "Event Track"
+				maxchar = 100
+				values = {"AI & Data Science Track","Web Development Track","Cloud Computing Track","Cyber Security  Track","IoT & Embedded System Track","Blockchain Track"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Areas_Of_Interest
+			(
+				type = list	
+				displayname = "Areas Of Interest"
+				values = {"Artificial Intelligence","Generative AI","Data Science","Web Development","Cloud Computing","Cyber Security","IoT & Embedded Systems","Blockchain"}
+				height = 60px
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Expectations_Form_Event
+			(
+    			type = textarea
+				displayname = "Expectations Form Event"
+				height = 100px
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Scheduling
+			(
+				type = section
+				displayname = "Scheduling & Acknowlegement"
+				visibility = true
+	 			row = 5
+	 			column = 0   
+				width = medium
+			)
+			Preferred_Session_Date
+			(
+    			type = date
+				displayname = "Preferred Session Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Preferred_Session_Slot
+			(
+    			type = time
+				displayname = "Preferred Session Slot"
+				timedisplayoptions = "hh:mm:ss" 
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			must have Agree_To_Code_Of_Conduct
+			(
+				type = checkboxes	
+				displayname = "Agree To Code Of Conduct"
+				values = {"I agree to the Event Code of Conduct"}
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Identity_Verification
+			(
+				type = section
+				displayname = "Identity & Verification"
+				visibility = true
+	 			row = 6
+	 			column = 0   
+				width = medium
+			)
+			Colleges
+			(
+				type = picklist	
+				values  = Colleges.ID
+    			displayformat = [College_Name]
+				sortorder = ascending
+	 			row = 6
+	 			column = 1   
+				width = medium
+			)
+			Profile_Photo
+			(
+    			type = image
+				displayname = "Profile Photo"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 6
+	 			column = 1   
+				width = medium
+			)
+			ID_Proof_Upload
+			(
+    			type = upload file
+				displayname = "ID Proof Upload"
+				browse = local_drive
+				allowed file formats = {"pdf","jpg","png"}
+	 			row = 6
+	 			column = 1   
+				width = medium
+			)
+			Academic_CGPA
+			(
+				type = decimal
+				displayname = "Academic CGPA"
+	 			row = 6
+	 			column = 1   
+				width = medium
+			)
+			Team_Members_Details
+			(
+				type = grid
+				displayname = "Team Members Details"
+				Name
+				(
+    				type = name
+     				prefix
+     				(
+	     				 type = prefix
+	     				 displayname ="Prefix"
+	     				 visibility = false
+	     				 value = {"Mr.","Mrs.","Ms."}
+     				) 
+     				first_name
+     				(
+	     				 type = first_name
+	     				 displayname ="First Name"
+     				) 
+     				last_name
+     				(
+	     				 type = last_name
+	     				 displayname ="Last Name"
+     				) 
+     				suffix
+     				(
+	     				 type = suffix
+	     				 displayname ="Suffix"
+	     				 visibility = false
+     				) 
+					width = medium
+					personal data = true
+				)
+				Email
+				(
+    				type = email
+					maxchar = 80
+					width = medium
+					personal data = true
+				)
+				Role
+				(
+    				type = text
+					width = medium
+				)
+	 			row = 7
+	 			column = 1   
+				width = medium
+			)
+			Team_Media_Details
+			(
+				type = section
+				displayname = "Team & Media Details"
+				visibility = true
+	 			row = 8
+	 			column = 0   
+				width = medium
+			)
+			Portfolio_LinkedIn_U
+			(
+    			type = url
+				displayname = "Portfolio LinkedIn URL"
+				enable  linkname
+	 			row = 8
+	 			column = 1   
+				width = medium
+			)
+			Team_Intro_Video
+			(
+    			type = video
+				displayname = "Team Intro Video"
+    			duration=60
+	 			row = 8
+	 			column = 1   
+				width = medium
+			)
+			Special_Requirement_Voice_Note
+			(
+     			type = audio
+				displayname = "Special Requirement Voice Note"
+    			duration=60
+	 			row = 8
+	 			column = 1   
+				width = medium
+			)
+			Fee_Accommodation
+			(
+				type = section
+				displayname = "Fee & Accommodation"
+				visibility = true
+	 			row = 9
+	 			column = 0   
+				width = medium
+			)
+			must have Event_Guidelines_Display
+			(
+    			type = checkbox
+				displayname = "Requires Accommodation"
+				initial value = false
+	 			row = 9
+	 			column = 1   
+				width = medium
+			)
+			Registration_Fee_Paid
+			(
+				displayname = "Registration Fee Paid"
+				type = INR
+				format = commadotindian
+	 			row = 9
+	 			column = 1   
+				width = medium
+			)
+			Early_Bird_Discount_Percent
+			(
+    			type = percentage
+				displayname = "Early Bird Discount Percent"
+	 			row = 9
+	 			column = 1   
+				width = medium
+			)
+			Total_Amount_Payable
+			(
+				type = decimal
+				displayname = "Total Amount Payable"
+	 			row = 9
+	 			column = 1   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Registration_Fee_Paid - input.Registration_Fee_Paid * input.Early_Bird_Discount_Percent
+    						visibility = true
+    			)
+			)
+			Declaration_System_Generated_Values
+			(
+				type = section
+				displayname = "Declaration & System-Generated Values"
+				visibility = true
+	 			row = 10
+	 			column = 0   
+				width = medium
+			)
+			Event_Guidelines_Display1
+			(
+    			type = richtext
+				displayname = "Event Guidelines Display"
+				height = 200px
+				toolbar = enable
+				[
+					style, font-color, background-color, link, bullets-and-numbering, 
+					font-size : {1, 2, 3, 4, 5, 6, 7}
+				]
+	 			row = 10
+	 			column = 1   
+				width = medium
+			)
+			must have Participant_Digital_Signature
+			(
+    			type = signature
+				displayname = "Participant Digital Signature"
+	 			row = 10
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Registration_Submitted_On
+			(
+    			type = datetime
+				displayname = "Registration Submitted On"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 10
+	 			column = 1   
+				width = medium
+			)
+			Registration_ID
+			(
+    			type = autonumber
+				displayname = "Registration ID"
+				start index = 1
+	 			row = 10
+	 			column = 1   
+				width = medium
+			)
+			QR_Code
+			(
+				type = qrcode
+				displayname = "Event Entry QR Code"
+				value = "${Participant_Name}"
+	 			row = 10
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Registration Submitted","Verification","Stage3"}
+			}
+		}
+		form Test
+		{
+			success message = "Test Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Date_field
+			(
+    			type = date
+				displayname = "Date"
+				initial value = "${zoho.currentdate}"
+				alloweddays = 1,2,3,4,5
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list All_Event_Registrations
+		{
+			displayName = "All Event Registrations"
+			show all rows from Event_Registration_Form    
+			(
+				Participant_Name  as "Participant Name"
+				Institution_Address  as "Institution Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Email1 as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				College_Organization_Name as "College  Organization Name"
+				Expectations_Form_Event as "Expectations Form Event"
+				Team_Size as "Team Size"
+				Preferred_Session_Date as "Preferred Session Date"
+				Preferred_Session_Slot as "Preferred Session Slot"
+				Event_Track as "Event Track"
+				Participant_Type as "Participant Type"
+				Areas_Of_Interest as "Areas Of Interest"
+				Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+				Event_Guidelines_Display1 as "Event Guidelines Display"
+				Event_Guidelines_Display as "Requires Accommodation"
+				Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+				Profile_Photo as "Profile Photo"
+				Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+				Registration_Fee_Paid as "Registration Fee Paid"
+				Academic_CGPA as "Academic CGPA"
+				Registration_Submitted_On as "Registration Submitted On"
+				Team_Members_Details.Name as "Team Members Details"
+				Colleges
+				Participant_Digital_Signature as "Participant Digital Signature"
+				ID_Proof_Upload as "ID Proof Upload"
+				Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+				Team_Intro_Video as "Team Intro Video"
+				Registration_ID as "Registration ID"
+				Total_Amount_Payable as "Total Amount Payable"
+				QR_Code as "Event Entry QR Code"
+			)
+		}
+		default list All_Colleges
+		{
+			displayName = "All Colleges"
+			show all rows from Colleges    
+			(
+				College_Name as "College Name"
+				College_Code as "College Code"
+			)
+		}
+		list All_Registrations_List
+		{
+			displayName = "All Registrations List"
+			show all rows from Event_Registration_Form    
+			(
+				Participant_Name  as "Participant Name"
+				Participant_Type as "Participant Type"
+				Team_Size as "Team Size"
+				Email1 as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				College_Organization_Name as "College  Organization Name"
+				Institution_Address  as "Institution Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Event_Track as "Event Track"
+				Areas_Of_Interest as "Areas Of Interest"
+				Expectations_Form_Event as "Expectations Form Event"
+				Preferred_Session_Date as "Preferred Session Date"
+				Preferred_Session_Slot as "Preferred Session Slot"
+				Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+				Colleges
+				Profile_Photo as "Profile Photo"
+				ID_Proof_Upload as "ID Proof Upload"
+				Academic_CGPA as "Academic CGPA"
+				Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+				Team_Intro_Video as "Team Intro Video"
+				Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+				Event_Guidelines_Display as "Requires Accommodation"
+				Registration_Fee_Paid as "Registration Fee Paid"
+				Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+				Total_Amount_Payable as "Total Amount Payable"
+				Event_Guidelines_Display1 as "Event Guidelines Display"
+				Participant_Digital_Signature as "Participant Digital Signature"
+				Registration_Submitted_On as "Registration Submitted On"
+				Registration_ID as "Registration ID"
+				QR_Code as "Event Entry QR Code"
+			)
+		}
+		spreadsheet Registrations_Spreadsheet
+		{
+			displayName = "Registrations_Spreadsheet"
+			show all rows from Event_Registration_Form    
+			(
+				Participant_Name  as "Participant Name"
+				Participant_Type as "Participant Type"
+				Team_Size as "Team Size"
+				Email1 as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				College_Organization_Name as "College  Organization Name"
+				Institution_Address  as "Institution Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Event_Track as "Event Track"
+				Areas_Of_Interest as "Areas Of Interest"
+				Expectations_Form_Event as "Expectations Form Event"
+				Preferred_Session_Date as "Preferred Session Date"
+				Preferred_Session_Slot as "Preferred Session Slot"
+				Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+				Colleges
+				Profile_Photo as "Profile Photo"
+				ID_Proof_Upload as "ID Proof Upload"
+				Academic_CGPA as "Academic CGPA"
+				Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+				Team_Intro_Video as "Team Intro Video"
+				Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+				Event_Guidelines_Display as "Requires Accommodation"
+				Registration_Fee_Paid as "Registration Fee Paid"
+				Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+				Total_Amount_Payable as "Total Amount Payable"
+				Event_Guidelines_Display1 as "Event Guidelines Display"
+				Participant_Digital_Signature as "Participant Digital Signature"
+				Registration_Submitted_On as "Registration Submitted On"
+				Registration_ID as "Registration ID"
+				QR_Code as "Event Entry QR Code"
+			)
+		}
+		kanban Registration_Status_Kanban
+		{
+			displayName = "Registration_Status_Kanban"
+			show all rows from Event_Registration_Form    
+			(
+				Participant_Name  as "Participant Name"
+				Participant_Type as "Participant Type"
+				Team_Size as "Team Size"
+				Email1 as "Email Address"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				College_Organization_Name as "College  Organization Name"
+				Institution_Address  as "Institution Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Event_Track as "Event Track"
+				Areas_Of_Interest as "Areas Of Interest"
+				Expectations_Form_Event as "Expectations Form Event"
+				Preferred_Session_Date as "Preferred Session Date"
+				Preferred_Session_Slot as "Preferred Session Slot"
+				Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+				Colleges
+				Profile_Photo as "Profile Photo"
+				ID_Proof_Upload as "ID Proof Upload"
+				Academic_CGPA as "Academic CGPA"
+				Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+				Team_Intro_Video as "Team Intro Video"
+				Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+				Event_Guidelines_Display as "Requires Accommodation"
+				Registration_Fee_Paid as "Registration Fee Paid"
+				Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+				Total_Amount_Payable as "Total Amount Payable"
+				Event_Guidelines_Display1 as "Event Guidelines Display"
+				Participant_Digital_Signature as "Participant Digital Signature"
+				Registration_Submitted_On as "Registration Submitted On"
+				Registration_ID as "Registration ID"
+				QR_Code as "Event Entry QR Code"
+			)
+			options
+			(
+	 			display field = Event_Track
+	 		)
+		}
+		default list All_Tests
+		{
+			displayName = "All Tests"
+			show all rows from Test    
+			(
+				Date_field as "Date"
+			)
+		}
+	}
+	pages
+	{
+		page Event_Command_Center_Page
+		{
+			displayname = "Event_Command_Center_Page"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#FF4C2F'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Event_Registration_Form.Team_Size.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '0px'\n\n\n\n\n\n    borderColor = '#333333'\n    borderWidth = '0px'\n\n\t  value = 'Numbers'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<board\n    \n\tbgColor = '#FFFFFF'\n        bgColorType = 'solid'\n\tpadding = '0px'\nelementName='Board'\n    layoutType = 'grid'\n        items = '2'\n    appLinkName = 'thisapp'\n    formLinkName = 'Event_Registration_Form'\n    rankBy = 'ID'\n    rankOrder = 'highestToLowest'\n    rankAggregate = 'count'\n    limit = '3'\n    groupBy = 'Colleges'\n>\n<boardHeader>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '14px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '14px'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#000000'\n\tsize = '16px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Order Status'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</boardHeader>\n<boardLayout\n                paddingRight = '15px'\n                paddingBottom = '14px'\n                paddingLeft = '15px'\n                paddingTop = '2px'\n                itemGap = '10px'\n>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '10px'\n\n    borderColor = '#F2F2F2'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '12px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginBottom = '10px'\n\n    borderWidth = '0px'\n\tcolor = '#000000'\n\tbgColor = '#F7F7FB'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'shopping-mobile-cart'\n\tsize = '22px'\n\tcornerRadius = '20px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginBottom = '10px'\n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'boardData'\n\n\n    lineHeight = '22'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'groupedField'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '21px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '28'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rankAggregate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</boardLayout>\n</board>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Campaign performance'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<button \n\t\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttext ='View Breakdown'\n\t\tbgColor = 'theme'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+		page Command_Center_Main_Panel
+		{
+			displayname = "Command_Center_Main_Panel"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Command_Center_Main_Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#FF4C2F'\n\tsize = '36px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = '385'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#333333'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'New employees this month'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<board\n    \n\tbgColor = '#FFFFFF'\n        bgColorType = 'solid'\n\tpadding = '0px'\nelementName='Board'\n    layoutType = 'carousel'\n    appLinkName = 'thisapp'\n    formLinkName = 'Event_Registration_Form'\n    rankBy = 'ID'\n    rankOrder = 'highestToLowest'\n    rankAggregate = 'count'\n    limit = '3'\n    groupBy = 'Colleges'\n>\n<boardHeader>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '14px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '14px'\n\n\t\twidth = '100%'\n\t\thAlign = 'center'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = '#000000'\n\tsize = '15px'\n\tbold = 'true' \n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Tickets Sold by Region'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</boardHeader>\n<boardLayout\n                paddingRight = '15px'\n                paddingBottom = '14px'\n                paddingLeft = '15px'\n                paddingTop = '2px'\n                itemGap = '10px'\n>\n    <pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '10px'\n\n    borderColor = '#F2F2F2'\n    borderWidth = '1px'\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '12px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginBottom = '15px'\n\n\tcolor = '#000000'\n\tbgColor = '#F7F7FB'\n\twidth = '48px'\n\theight = '48px'\n\ttype = 'icon'\n\tvalue = 'media-1-ticket-76'\n\tsize = '20px'\n\tcornerRadius = '24px'\n\ticonType = 'outline'\n/>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginBottom = '15px'\n\tcolor = '#000000'\n\tsize = '19px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '26'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rank'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginBottom = '15px'\n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'boardData'\n\n\n    lineHeight = '22'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'groupedField'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tcolor = 'theme'\n\tsize = '17px'\n\tbold = 'true' \n\ttype = 'boardData'\n\n\n    lineHeight = '23'\n    numOfLines = '1'\n\n\n\n\n\n\t  value = 'rankAggregate'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</boardLayout>\n</board>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<chart \n\telementName='Chart'\n\n\ttype = 'Bar'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Event_Registration_Form'\n\txfield = 'Event_Track'\n\tyfields = 'sum:Team_Size'\n/>\n\n</column><column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<button \n\t\tmargin = '0px'\n\tpaddingTop = '12px'\n\tpaddingLeft = '15px'\n\tpaddingRight = '15px'\n\tpaddingBottom = '12px'\n\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'All_Event_Registrations'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n    borderColor = '#FFFFFF'\n    borderWidth = '0px'\n\ttext ='Update Details'\n\t\tbgColor = 'theme'\n\t\tcornerRadius = '60px' \n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<search \n\telementName='Search'\n\tpaddingTop = '40px'\n\tpaddingLeft = '80px'\n\tpaddingRight = '80px'\n\tpaddingBottom = '40px'\n\tbgtype = 'none'\n\tbgColor = '#FFFFFF'\n\n\tshape = 'flat'\n\tresultComponent = 'report'\n\tlinkName = 'All_Event_Registrations'\n\ttarget = 'new-window'\n\tcriteriaString = 'Registration_ID == input.searchString'\n\tfontFamily = 'default'\n\tappLinkName = 'thisapp'\n\tstyle = '1'\n\tplaceholder = 'Enter value'\n\n>\n<searchbar color=\"#000000\" bgColor=\"#FFFFFF\" fontSize=\"15px\"\n/></search>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<row>\n\t<column\n   \t\t width='50%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<text \n\n\tsize = '20px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'All Event Registrations'\n>\n</text>\n\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\twidth = '100%'\n>\n\t<button \n\t\n    action = 'OpenReport'\n\t\tcomponentLinkName = 'All_Event_Registrations'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttext ='View'\n\t\tbgColor = '#0072F4'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='50%'\n   \t>\n\t<gauge \n\telementName='Gauge'\n\n\tcolor = '#000000'\n\tsize = '20px'\n\tfontFamily = 'default' \n\tbgColor = '#FFFFFF'\n\ttheme = '#0BD6B1'\n\tdisplayType = 'actual'\n\ttype = '1'\n\tfilledColor = '#0BD6B1'\n\tnonFilledColor = '#F5F5F5'\n\tneedleColor = '#000000'\n\ttargetColor = '#D8D8D8'\n\tvalue = 'thisapp.Event_Registration_Form.ID.count'\n>\n<target size=\"15px\" color=\"#7F7F7F\" fontFamily=\"default\" value=\"1000\"\n/><maximumvalue size=\"15px\" color=\"#7F7F7F\" value=\"2000\" \n/>\n</gauge>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<panel elementName='Panel'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<button \n\t\n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Event_Registration_Form'\n\t\ttarget = 'new-window'\n\tcolor = '#FFFFFF'\n\tsize = '16px'\n\ttext ='Event Registration Form'\n\t\tbgColor = '#0072F4'\n/>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Send_Email_Form_Propertie as "Send Email - Form Properties"
+			{
+				type =  presuccess
+				form = Event_Registration_Form
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "zoho.loginuserid"
+							subject : "Event Registration : New entry added"
+							message : "<div>Hello,<br><br>A new entry added in 'Event_Registration_Form' form of Event Registration application.<br></div>"
+						)
+					}
+				}
+			}
+			On_Registration_Submit_Wo as "On_Registration_Submit_Workflow"
+			{
+				type =  form
+				form = Event_Registration_Form
+
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "deephika.p.2024.cse@rajalakshmi.edu.in"
+							subject : "Event Registration"
+							message : "<div>The Registration is Completed Successfully!<br></div>"
+							attachments : template : _default as inline
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			Daily_Payment_Reminder_Sc as "Daily_Payment_Reminder_Schedule"
+			{
+				type =  schedule
+					status = inactive
+				start = "2026-08-21 15:55:00"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : "deephika.p.2024.cse@rajalakshmi.edu.in"
+							subject : "Event Registration"
+							message : "<div>Successfully Register for the Event!</div>"
+							attachments : view : Registrations_Spreadsheet as PDF
+						)
+					}
+				}
+			}
+		}
+
+		approval
+		{
+			VIP_Sponsorship_Pass_Appr as "VIP_Sponsorship_Pass_Approval"
+			{
+				type =  approval
+				form = Event_Registration_Form[Academic_CGPA == 8.5]
+				display fields = [Email1,Participant_Name,Participant_Type,Team_Size,Contact_Number,College_Organization_Name,Institution_Address]
+				on start
+				{
+				}
+				on level 1
+				{
+					on approve 
+					{
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.loginuserid"
+								to : "deephika.p.2024.cse@rajalakshmi.edu.in"
+								subject : "Approval Request"
+								message : "<div>Your request has been approved.<br></div>"
+							)
+						}
+					}
+					on reject
+					{
+
+						actions 
+						{
+							sendmail
+							(
+								from : "zoho.loginuserid"
+								to : "deephika.p.2024.cse@rajalakshmi.edu.in"
+								subject : "Reject Request"
+								message : "<div>${ID}Your request has been rejected.<br></div>"
+							)
+						}
+					}
+				}
+			}
+		}
+
+		blueprint
+		{
+    			Registration_Lifecycle_Bl as "Registration_Lifecycle_Blueprint"
+    			{
+        			type = Blueprint
+        			form = Event_Registration_Form
+        			start
+        			{
+        			}
+        			stages
+        			{
+        			}
+        			transitions
+        			{
+        			}
+    			}
+		}
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Colleges
+			{
+				label placement = left
+			}
+			form Event_Registration_Form
+			{
+				label placement = left
+			}
+			form Test
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report All_Event_Registrations
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Email1 as "Email Address"
+								Institution_Address as "Institution Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Expectations_Form_Event as "Expectations Form Event"
+								Team_Size as "Team Size"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Email1 as "Email Address"
+								Institution_Address as "Institution Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Expectations_Form_Event as "Expectations Form Event"
+								Team_Size as "Team Size"
+								Preferred_Session_Date as "Preferred Session Date"
+								Preferred_Session_Slot as "Preferred Session Slot"
+								Event_Track as "Event Track"
+								Participant_Type as "Participant Type"
+								Areas_Of_Interest as "Areas Of Interest"
+								Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+								Event_Guidelines_Display1 as "Event Guidelines Display"
+								Event_Guidelines_Display as "Requires Accommodation"
+								Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+								Profile_Photo as "Profile Photo"
+								Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+								Registration_Fee_Paid as "Registration Fee Paid"
+								Academic_CGPA as "Academic CGPA"
+								Registration_Submitted_On as "Registration Submitted On"
+								Team_Members_Details.Name as "Team Members Details"
+								Colleges
+								Participant_Digital_Signature as "Participant Digital Signature"
+								ID_Proof_Upload as "ID Proof Upload"
+								Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+								Team_Intro_Video as "Team Intro Video"
+								Registration_ID as "Registration ID"
+								Total_Amount_Payable as "Total Amount Payable"
+								QR_Code as "Event Entry QR Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Colleges
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								College_Name as "College Name"
+								College_Code as "College Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								College_Name as "College Name"
+								College_Code as "College Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Registrations_List
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+								Team_Size as "Team Size"
+								Email1 as "Email Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Institution_Address as "Institution Address"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+								Team_Size as "Team Size"
+								Email1 as "Email Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Institution_Address as "Institution Address"
+								Event_Track as "Event Track"
+								Areas_Of_Interest as "Areas Of Interest"
+								Expectations_Form_Event as "Expectations Form Event"
+								Preferred_Session_Date as "Preferred Session Date"
+								Preferred_Session_Slot as "Preferred Session Slot"
+								Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+								Colleges
+								Profile_Photo as "Profile Photo"
+								ID_Proof_Upload as "ID Proof Upload"
+								Academic_CGPA as "Academic CGPA"
+								Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+								Team_Intro_Video as "Team Intro Video"
+								Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+								Event_Guidelines_Display as "Requires Accommodation"
+								Registration_Fee_Paid as "Registration Fee Paid"
+								Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+								Total_Amount_Payable as "Total Amount Payable"
+								Event_Guidelines_Display1 as "Event Guidelines Display"
+								Participant_Digital_Signature as "Participant Digital Signature"
+								Registration_Submitted_On as "Registration Submitted On"
+								Registration_ID as "Registration ID"
+								QR_Code as "Event Entry QR Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Registrations_Spreadsheet
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = -3
+						datablock1
+						(
+							layout type = -3
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+								Team_Size as "Team Size"
+								Email1 as "Email Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Institution_Address as "Institution Address"
+								Event_Track as "Event Track"
+								Areas_Of_Interest as "Areas Of Interest"
+								Expectations_Form_Event as "Expectations Form Event"
+								Preferred_Session_Date as "Preferred Session Date"
+								Preferred_Session_Slot as "Preferred Session Slot"
+								Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+								Colleges
+								Profile_Photo as "Profile Photo"
+								ID_Proof_Upload as "ID Proof Upload"
+								Academic_CGPA as "Academic CGPA"
+								Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+								Team_Intro_Video as "Team Intro Video"
+								Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+								Event_Guidelines_Display as "Requires Accommodation"
+								Registration_Fee_Paid as "Registration Fee Paid"
+								Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+								Total_Amount_Payable as "Total Amount Payable"
+								Event_Guidelines_Display1 as "Event Guidelines Display"
+								Participant_Digital_Signature as "Participant Digital Signature"
+								Registration_Submitted_On as "Registration Submitted On"
+								Registration_ID as "Registration ID"
+								QR_Code as "Event Entry QR Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+								Team_Size as "Team Size"
+								Email1 as "Email Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Institution_Address as "Institution Address"
+								Event_Track as "Event Track"
+								Areas_Of_Interest as "Areas Of Interest"
+								Expectations_Form_Event as "Expectations Form Event"
+								Preferred_Session_Date as "Preferred Session Date"
+								Preferred_Session_Slot as "Preferred Session Slot"
+								Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+								Colleges
+								Profile_Photo as "Profile Photo"
+								ID_Proof_Upload as "ID Proof Upload"
+								Academic_CGPA as "Academic CGPA"
+								Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+								Team_Intro_Video as "Team Intro Video"
+								Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+								Event_Guidelines_Display as "Requires Accommodation"
+								Registration_Fee_Paid as "Registration Fee Paid"
+								Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+								Total_Amount_Payable as "Total Amount Payable"
+								Event_Guidelines_Display1 as "Event Guidelines Display"
+								Participant_Digital_Signature as "Participant Digital Signature"
+								Registration_Submitted_On as "Registration Submitted On"
+								Registration_ID as "Registration ID"
+								QR_Code as "Event Entry QR Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Registration_Status_Kanban
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Participant_Name as "Participant Name"
+								Participant_Type as "Participant Type"
+								Team_Size as "Team Size"
+								Email1 as "Email Address"
+								Contact_Number as "Contact Number"
+								College_Organization_Name as "College  Organization Name"
+								Institution_Address as "Institution Address"
+								Event_Track as "Event Track"
+								Areas_Of_Interest as "Areas Of Interest"
+								Expectations_Form_Event as "Expectations Form Event"
+								Preferred_Session_Date as "Preferred Session Date"
+								Preferred_Session_Slot as "Preferred Session Slot"
+								Agree_To_Code_Of_Conduct as "Agree To Code Of Conduct"
+								Colleges
+								Profile_Photo as "Profile Photo"
+								ID_Proof_Upload as "ID Proof Upload"
+								Academic_CGPA as "Academic CGPA"
+								Portfolio_LinkedIn_U as "Portfolio LinkedIn URL"
+								Team_Intro_Video as "Team Intro Video"
+								Special_Requirement_Voice_Note as "Special Requirement Voice Note"
+								Event_Guidelines_Display as "Requires Accommodation"
+								Registration_Fee_Paid as "Registration Fee Paid"
+								Early_Bird_Discount_Percent as "Early Bird Discount Percent"
+								Total_Amount_Payable as "Total Amount Payable"
+								Event_Guidelines_Display1 as "Event Guidelines Display"
+								Participant_Digital_Signature as "Participant Digital Signature"
+								Registration_Submitted_On as "Registration Submitted On"
+								Registration_ID as "Registration ID"
+								QR_Code as "Event Entry QR Code"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Tests
+			{
+				quickview
+				(
+					layout
+					(
+						displaylayout = "classic"
+						datablock1
+						(
+							fields
+							(
+								Date_field as "Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Date_field as "Date"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Event_Registrations
+				{
+					displayname = "Event Registrations"
+					icon = "location-appointment"
+					form  Event_Registration_Form
+					{
+						icon = "location-appointment"
+					}
+					report All_Event_Registrations
+					{
+						icon = "tech-desktop"
+					}
+					report All_Registrations_List
+					{
+						icon = "location-appointment"
+					}
+					report Registrations_Spreadsheet
+					{
+						icon = "location-appointment"
+					}
+					report Registration_Status_Kanban
+					{
+						icon = "location-appointment"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Colleges
+				{
+					displayname = "Colleges"
+					icon = "education-school"
+					form  Colleges
+					{
+						icon = "education-school"
+					}
+					report All_Colleges
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Event_Command_Center_Page
+				{
+					displayname = "Event_Command_Center_Page"
+					icon = "tech-desktop"
+					page Event_Command_Center_Page
+					{
+						icon = "tech-desktop"
+					}
+					page Command_Center_Main_Panel
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Tests
+				{
+					displayname = "Tests"
+					icon = "education-flask"
+					form  Test
+					{
+						icon = "education-flask"
+					}
+					report All_Tests
+					{
+						icon = "tech-desktop"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Colleges
+			{
+				label placement = auto
+			}
+			form Event_Registration_Form
+			{
+				label placement = auto
+			}
+			form Test
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Colleges
+			{
+				label placement = auto
+			}
+			form Event_Registration_Form
+			{
+				label placement = auto
+			}
+			form Test
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = rose
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
